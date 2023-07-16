@@ -1,7 +1,7 @@
 ENTRY(_start)
 SECTIONS
 {
-    . = #INITADDR#; /* replaced by sed */
+    . = 0x80000;
     __ram_start = .;
     .init : { KEEP(*(.init)) }
     .text : { *(.text .text.* .gnu.linkonce.t*) }
@@ -36,10 +36,7 @@ SECTIONS
     . = ALIGN(1024 * 64);
 
     /* 8MiB space for EL1 */
-    __stack_el1_end   = .;
-    __stack_el1_start = __stack_el1_end + #STACKSIZE# * #NUMCPU#;
-
-    __free_mem_start = __stack_el1_start;
+    __stack_memory = .;
 
    /DISCARD/ : { *(.comment) *(.gnu*) *(.note*) *(.eh_frame*) }
 }

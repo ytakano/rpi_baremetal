@@ -12,7 +12,7 @@
             "-z",
             "norelro",
             "-T",
-            "link-raspi.lds",
+            "link.lds",
             "--static",
             "--gc-sections",
             "-m",
