@@ -1,0 +1,2 @@
+[alias]
+raspi = "build --no-default-features --target aarch64-custom.json -Zbuild-std=core,alloc,compiler_builtins -Zbuild-std-features=compiler-builtins-mem"
