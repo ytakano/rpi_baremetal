@@ -38,6 +38,6 @@ SECTIONS
     /* 8MiB space for EL1 */
     __stack_memory = .;
 
-   /DISCARD/ : { *(.comment) *(.gnu*) *(.note*) *(.eh_frame*) }
+   /DISCARD/ : { *(.comment) *(.gnu*) *(.note*) }
 }
 __bss_size = (__bss_end - __bss_start) >> 3;
