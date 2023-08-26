@@ -48,10 +48,12 @@ unsafe fn init_uart() {
     pin15.set_function(GPIOFunc::ALT0);
 
     // Raspi 3
+    #[cfg(feature = "raspi3")]
     let mut pl011 = driver::pl011::PL011Uart::new(0x3f20_1000);
 
     // Raspi 4
-    // let pl011 = driver::pl011::PL011Uart::new(0xfe20_1000);
+    #[cfg(feature = "raspi4")]
+    let pl011 = driver::pl011::PL011Uart::new(0xfe20_1000);
 
     pl011.init(115200);
 

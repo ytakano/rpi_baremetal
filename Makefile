@@ -21,7 +21,7 @@ boot.o: asm/boot.S
 	clang --target=aarch64-elf -c $< -o $@
 
 target/aarch64-custom/$(BUILD)/rpi_baremetal: boot.o FORCE
-	RUSTFLAGS="$(RUSTC_MISC_ARGS)" cargo +nightly raspi
+	RUSTFLAGS="$(RUSTC_MISC_ARGS)" cargo +nightly raspi --features $(TARGET)
 
 kernel8.img: target/aarch64-custom/$(BUILD)/rpi_baremetal
 	rust-objcopy -O binary target/aarch64-custom/$(BUILD)/rpi_baremetal $@
