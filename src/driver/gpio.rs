@@ -62,9 +62,11 @@ use core::{
     ptr::{read_volatile, write_volatile},
 };
 
+#[cfg(feature = "raspi3")]
 const GPIO_BASE_ADDRESS: u32 = 0x3f20_0000; // GPIOのベースアドレス, Raspberry Pi 3
 
-// const GPIO_BASE_ADDRESS: u32 = 0xfe20_0000; // GPIOのベースアドレス, Raspberry Pi 4
+#[cfg(feature = "raspi4")]
+const GPIO_BASE_ADDRESS: u32 = 0xfe20_0000; // GPIOのベースアドレス, Raspberry Pi 4
 
 /// GPIOの機能設定を表す列挙型
 pub enum GPIOFunc {
