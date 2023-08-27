@@ -53,7 +53,7 @@ unsafe fn init_uart() {
 
     // Raspi 4
     #[cfg(feature = "raspi4")]
-    let pl011 = driver::pl011::PL011Uart::new(0xfe20_1000);
+    let mut pl011 = driver::pl011::PL011Uart::new(0xfe20_1000);
 
     pl011.init(115200);
 
